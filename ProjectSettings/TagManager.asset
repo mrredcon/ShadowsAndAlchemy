@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Brigand
+  - Projectile
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Terrain
+  - Projectiles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3418468563
+    locked: 0
+  - name: Terrain
+    uniqueID: 2936015865
+    locked: 0
+  - name: Characters
+    uniqueID: 670671739
+    locked: 0
+  - name: Weapons
+    uniqueID: 4200562835
+    locked: 0
+  - name: UI
+    uniqueID: 4161258261
+    locked: 0
