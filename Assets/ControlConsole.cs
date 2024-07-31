@@ -30,7 +30,6 @@ public class ControlConsole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EndGame();
     }
 
     // Update is called once per frame
