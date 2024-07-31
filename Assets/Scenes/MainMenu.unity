@@ -430,11 +430,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 297057197734838088, guid: 7bf197d6fc37fbf40a2634425ba41772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 85e00f8968801164186a1b509e5da106, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ed8b5365a11fc8d4aa0e00439dae5012, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1208,7 +1208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1214644433}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

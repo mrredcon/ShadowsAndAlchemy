@@ -22,11 +22,15 @@ public class ControlConsole : MonoBehaviour
     [SerializeField] private Animator[] trainWheels;
     [SerializeField] private ScrollingBackground scrollingBackground;
     [SerializeField] private ScrollingBackground scrollingForeground;
+    [SerializeField] private AudioSource trainAudio;
+    [SerializeField] private AudioSource powerDownAudio;
+    [SerializeField] private AudioSource trainStopAudio;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        EndGame();
     }
 
     // Update is called once per frame
@@ -72,6 +76,10 @@ public class ControlConsole : MonoBehaviour
         // Stop scrolling the foreground and background
         scrollingBackground.Stop();
         scrollingForeground.Stop();
+
+        trainAudio.Stop();
+        powerDownAudio.Play();
+        trainStopAudio.Play();
     }
 
     private IEnumerator ShowCurtain()
