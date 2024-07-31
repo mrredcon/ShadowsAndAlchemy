@@ -292,6 +292,11 @@ public class Creature : MonoBehaviour
         return maxHitPoints;
     }
 
+    public void FullyHeal()
+    {
+        hitPoints = maxHitPoints;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -338,11 +343,20 @@ public class Creature : MonoBehaviour
         Vector3 pivotPoint = customPivot.position;
         Vector3 difference = target - pivotPoint;
 
+        Transform muzzle = gun.GetMuzzle();
         float theta = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
         if (Mathf.Abs(theta) > 90) {
             gun.GetComponent<SpriteRenderer>().flipY = true;
+            //Debug.Log("Old pos " + muzzle.position);
+            muzzle.localPosition = new Vector3(muzzle.localPosition.x, Mathf.Abs(muzzle.localPosition.y) * -1, muzzle.localPosition.z);
+            //Debug.Log("New pos" + muzzle.position);
         } else {
+            //Debug.Log("Old pos " + muzzle.position);
             gun.GetComponent<SpriteRenderer>().flipY = false;
+            muzzle.localPosition = new Vector3(muzzle.localPosition.x, Mathf.Abs(muzzle.localPosition.y), muzzle.localPosition.z);
+            //muzzle.position = new Vector3(muzzle.position.x, Mathf.Abs(muzzle.position.y), muzzle.position.z);
+            //Debug.Log("New pos" + muzzle.position);
         }
 
         customPivot.eulerAngles = new Vector3(0, 0, Mathf.LerpAngle(customPivot.eulerAngles.z, theta, Time.deltaTime * rotationSpeed));

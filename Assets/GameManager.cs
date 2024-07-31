@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Texture2D cursorTexture;
+    private float stopwatch;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        stopwatch += Time.deltaTime;
+    }
+
+    public float GetStopwatch()
+    {
+        return stopwatch;
     }
 }

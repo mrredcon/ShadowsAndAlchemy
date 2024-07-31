@@ -10,6 +10,12 @@ public class ScrollingBackground : MonoBehaviour
     private float sizeX;
     [SerializeField] private float speed;
     [SerializeField] private float yLevel;
+    private bool stop = false;
+
+    public void Stop()
+    {
+        stop = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,11 @@ public class ScrollingBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stop)
+        {
+            return;
+        }
+
         leftBackground.transform.position = new Vector2(leftBackground.transform.position.x + speed * Time.deltaTime, leftBackground.transform.position.y);
         rightBackground.transform.position = new Vector2(rightBackground.transform.position.x + speed * Time.deltaTime, rightBackground.transform.position.y);
 

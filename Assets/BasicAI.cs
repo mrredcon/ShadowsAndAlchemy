@@ -96,7 +96,8 @@ public class BasicAI : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.LinecastAll(myCreature.transform.position, targetCreature.transform.position);
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Terrain") ||
+                hit.collider.gameObject.CompareTag("BlocksLOS"))
             {
                 return false;
             }

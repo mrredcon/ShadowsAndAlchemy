@@ -11,6 +11,8 @@ public class TrainManager : MonoBehaviour
     [SerializeField] private GameObject[] doors;
     private int enemyCount = 0;
     private bool playerIsHere = false;
+    private bool playerHasVisitedCar = false;
+    [SerializeField] private Creature playerCreature;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,27 @@ public class TrainManager : MonoBehaviour
         filter = new ContactFilter2D();
         matches = new List<Collider2D>();
         OpenDoors();
+    }
+
+    public int GetEnemyCount()
+    {
+        int enemies = 0;
+
+        boxCollider.OverlapCollider(filter.NoFilter(), matches);
+        foreach (Collider2D collider in matches)
+        {
+            if (collider.gameObject.CompareTag("Brigand"))
+            {
+                Creature creature = collider.gameObject.GetComponent<Creature>();
+                if (creature.IsAlive())
+                {
+                    enemies++;
+                }
+            }
+        }
+
+        matches.Clear();
+        return enemies;
     }
 
     private void DetectCreatures()
@@ -31,6 +54,13 @@ public class TrainManager : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("Player")) {
                 playerIsHere = true;
+
+                // First time player has visited the train car, give a full heal
+                if (!playerHasVisitedCar)
+                {
+                    playerCreature.FullyHeal();
+                }
+                playerHasVisitedCar = true;
             }
 
             if (collider.gameObject.CompareTag("Brigand"))

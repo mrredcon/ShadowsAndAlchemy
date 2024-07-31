@@ -44,4 +44,9 @@ public class Gun : MonoBehaviour
         timer = 0.0f;
         onCooldown = true;
     }
+
+    public Transform GetMuzzle()
+    {
+        return muzzleTransform;
+    }
 }
